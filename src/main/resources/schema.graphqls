@@ -1,0 +1,31 @@
+schema {
+   query: Query
+}
+
+type Produto {
+  id: ID!
+  sku : String!
+  descricao: String!
+  quantidade: Int!
+  ofertas: [Oferta]!
+}
+
+type Oferta {
+  id: ID!
+  loja: Loja!
+  valor: Float!
+}
+
+type Loja {
+	id: ID!
+	nome: String!
+}
+
+type Query {
+  obterOfertas: [Oferta]!
+  obterOfertasPorIdProduto(id: Long) : [Oferta]!
+}
+
+type Mutation {
+    novaOferta(valor: Float!, idLoja: Long!) : Oferta
+}
