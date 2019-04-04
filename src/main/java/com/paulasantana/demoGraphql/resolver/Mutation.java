@@ -12,8 +12,8 @@ public class Mutation implements GraphQLMutationResolver{
 		this.ofertaRepository = ofertaRepository;
 	}
 
-	public Oferta novaOferta(double valor, long idLoja) {
-	        return ofertaRepository.adcionarOferta(valor, idLoja);
+	public Oferta novaOferta(Oferta oferta) {
+	        return ofertaRepository.save(oferta);
 	 }
 
 }

@@ -15,11 +15,11 @@ public class Query implements GraphQLQueryResolver{
 	}
 
 	public List<Oferta> getObterOfertas() {
-	       return ofertasRepository.getOfertas();
+	       return ofertasRepository.findAll();
 	}
 	
-	public List<Oferta> getObterOfertasPorIdProduto(long id){
-		return ofertasRepository.getOfertasPorProduto(id);
+	public Oferta getObterOfertasPorId(long id){
+		return ofertasRepository.findById(id).get();
 	}
 	
 }

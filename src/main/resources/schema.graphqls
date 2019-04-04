@@ -4,28 +4,30 @@ schema {
 
 type Produto {
   id: ID!
-  sku : String!
   descricao: String!
-  quantidade: Int!
-  ofertas: [Oferta]!
+  categoria: String
+
 }
 
 type Oferta {
   id: ID!
-  loja: Loja!
+  sku: String!
   valor: Float!
+  produto: Produto!
+  loja: Loja!
+  quantidade: Int!
 }
 
 type Loja {
 	id: ID!
-	nome: String!
+	nomeFantasia: String!
+	razaoSocial: String!
+	cnpj:String!
 }
 
 type Query {
   obterOfertas: [Oferta]!
-  obterOfertasPorIdProduto(id: Long) : [Oferta]!
+  obterOfertasPorId(id: Long) : Oferta
 }
 
-type Mutation {
-    novaOferta(valor: Float!, idLoja: Long!) : Oferta
-}
+

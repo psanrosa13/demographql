@@ -1,5 +1,6 @@
 package com.paulasantana.demoGraphql;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -16,12 +17,12 @@ public class DemoGraphqlApplication {
 	}
 	
 	@Bean
-	public Query query(OfertaRepository ofertaRepository ){
+	public Query query(@Autowired OfertaRepository ofertaRepository ){
 		return new Query(ofertaRepository);
 	}
 
 	@Bean
-	public Mutation mutation(OfertaRepository ofertaRepository ){
+	public Mutation mutation(@Autowired OfertaRepository ofertaRepository ){
 		return new Mutation(ofertaRepository);
 	}
 }
